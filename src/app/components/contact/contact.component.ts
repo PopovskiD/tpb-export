@@ -40,7 +40,7 @@ export class ContactComponent {
     {
       icon: 'mail',
       title: 'Email',
-      content: 'info@tpbexport.com'
+      content: 'info@tpb-export.com'
     },
     {
       icon: 'clock',
