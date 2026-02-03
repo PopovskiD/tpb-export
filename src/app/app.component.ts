@@ -8,7 +8,6 @@ import { ImportExportComponent } from './components/services/import-export/impor
 import { RetailComponent } from './components/services/retail/retail.component';
 import { PartnersComponent } from './components/partners/partners.component';
 import { LocationsComponent } from './components/locations/locations.component';
-import { CareerComponent } from './components/career/career.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
 
@@ -25,7 +24,6 @@ import { FooterComponent } from './components/footer/footer.component';
     RetailComponent,
     PartnersComponent,
     LocationsComponent,
-    CareerComponent,
     ContactComponent,
     FooterComponent
   ],

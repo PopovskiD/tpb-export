@@ -7,22 +7,6 @@
 
     <div class="locations-content">
       <div class="locations-sidebar">
-        <div class="legend">
-          <h4>Location Types</h4>
-          <div class="legend-item">
-            <span class="legend-dot" [style.background-color]="getTypeColor('office')"></span>
-            <span>Offices</span>
-          </div>
-          <div class="legend-item">
-            <span class="legend-dot" [style.background-color]="getTypeColor('warehouse')"></span>
-            <span>Warehouses</span>
-          </div>
-          <div class="legend-item">
-            <span class="legend-dot" [style.background-color]="getTypeColor('partner')"></span>
-            <span>Partner Stores</span>
-          </div>
-        </div>
-
         <div class="locations-list">
           <div class="location-group" *ngFor="let type of locationTypes">
             <h5>{{ getTypeLabel(type) }}</h5>

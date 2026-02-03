@@ -26,7 +26,7 @@ export class LocationsComponent implements AfterViewInit, OnDestroy {
   private map!: L.Map;
   private markers: L.Marker[] = [];
   selectedLocation: StoreLocation | null = null;
-  locationTypes: Array<'office' | 'warehouse' | 'partner'> = ['office', 'warehouse', 'partner'];
+  locationTypes: Array<'partner'> = ['partner'];
 
   // Partner store locations in Macedonia
   storeLocations: StoreLocation[] = [
@@ -298,8 +298,6 @@ export class LocationsComponent implements AfterViewInit, OnDestroy {
 
   getTypeLabel(type: string): string {
     const labels: { [key: string]: string } = {
-      warehouse: 'Warehouses',
-      office: 'Offices',
       partner: 'Partner Stores'
     };
     return labels[type] || type;
