@@ -164,8 +164,8 @@ export class LocationsComponent implements AfterViewInit, OnDestroy {
       address: 'Orce Nikolov 204',
       city: 'Skopje',
       country: 'North Macedonia',
-      lat: 42.0012,
-      lng: 21.4298,
+      lat: 42.00552755713388,
+      lng: 21.410127519475058,
       type: 'partner'
     },
 
