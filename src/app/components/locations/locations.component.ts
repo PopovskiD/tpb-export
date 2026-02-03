@@ -30,28 +30,25 @@ export class LocationsComponent implements AfterViewInit, OnDestroy {
 
   // Partner store locations in Macedonia
   storeLocations: StoreLocation[] = [
-    // TPB Export Office
+    // VERO MARKETS - Skopje
     {
-      id: 1,
-      name: 'TPB Export - Head Office',
-      address: 'Skopje',
+      id: 2,
+      name: 'Vero Market - Diamond Mall',
+      address: 'Aerodrom',
       city: 'Skopje',
       country: 'North Macedonia',
-      lat: 41.9981,
-      lng: 21.4254,
-      type: 'office',
-      email: 'info@tpbexport.com'
+      lat: 41.990187457593684,
+      lng: 21.43041766617964,
+      type: 'partner'
     },
-
-    // VERO MARKETS - Skopje
     {
       id: 2,
       name: 'Vero Market - Aerodrom',
       address: 'Aerodrom',
       city: 'Skopje',
       country: 'North Macedonia',
-      lat: 41.9787,
-      lng: 21.4611,
+      lat: 41.984879445968105,
+      lng: 21.46903396247574,
       type: 'partner'
     },
     {
@@ -60,8 +57,8 @@ export class LocationsComponent implements AfterViewInit, OnDestroy {
       address: 'Boris Trajkovski 13',
       city: 'Skopje',
       country: 'North Macedonia',
-      lat: 41.9768,
-      lng: 21.4356,
+      lat: 41.98252228276498,
+      lng: 21.440673635491572,
       type: 'partner'
     },
     {
@@ -70,18 +67,18 @@ export class LocationsComponent implements AfterViewInit, OnDestroy {
       address: 'XCVR+5JX',
       city: 'Skopje',
       country: 'North Macedonia',
-      lat: 42.0042,
-      lng: 21.4089,
+      lat: 41.993173498021925,
+      lng: 21.442193683375518,
       type: 'partner'
     },
     {
       id: 5,
-      name: 'Vero Market - Karpoš',
+      name: 'Vero Market - Karposh 4',
       address: 'Karpoš',
       city: 'Skopje',
       country: 'North Macedonia',
-      lat: 42.0045,
-      lng: 21.3986,
+      lat: 42.00697773219559,
+      lng: 21.39356432385239,
       type: 'partner'
     },
     {
@@ -90,8 +87,8 @@ export class LocationsComponent implements AfterViewInit, OnDestroy {
       address: 'Taftalidje',
       city: 'Skopje',
       country: 'North Macedonia',
-      lat: 41.9989,
-      lng: 21.3890,
+      lat: 41.9971496463323,
+      lng: 21.40553939686764,
       type: 'partner'
     },
     {
@@ -100,28 +97,18 @@ export class LocationsComponent implements AfterViewInit, OnDestroy {
       address: 'Čair',
       city: 'Skopje',
       country: 'North Macedonia',
-      lat: 42.0089,
-      lng: 21.4389,
+      lat: 42.014407954308666,
+      lng: 21.44565848152455,
       type: 'partner'
     },
     {
       id: 8,
-      name: 'Vero Market - Centar',
+      name: 'Vero Market - GTC',
       address: 'Centar',
       city: 'Skopje',
       country: 'North Macedonia',
-      lat: 41.9965,
-      lng: 21.4314,
-      type: 'partner'
-    },
-    {
-      id: 9,
-      name: 'Vero Market - Gjorče Petrov',
-      address: 'Gjorče Petrov',
-      city: 'Skopje',
-      country: 'North Macedonia',
-      lat: 42.0067,
-      lng: 21.3567,
+      lat: 41.99480085606406,
+      lng: 21.434519918296413,
       type: 'partner'
     },
 
@@ -132,31 +119,10 @@ export class LocationsComponent implements AfterViewInit, OnDestroy {
       address: 'Leninova',
       city: 'Gevgelija',
       country: 'North Macedonia',
-      lat: 41.1389,
-      lng: 22.5028,
+      lat: 42.0049152005826,
+      lng: 21.42596575083643,
       type: 'partner'
     },
-    {
-      id: 11,
-      name: 'Diem GP - Skopje',
-      address: 'Skopje',
-      city: 'Skopje',
-      country: 'North Macedonia',
-      lat: 41.9921,
-      lng: 21.4454,
-      type: 'partner'
-    },
-    {
-      id: 12,
-      name: 'Diem GP - Strumica',
-      address: 'Strumica',
-      city: 'Strumica',
-      country: 'North Macedonia',
-      lat: 41.4378,
-      lng: 22.6427,
-      type: 'partner'
-    },
-
     // LA NOI - Skopje
     {
       id: 13,
@@ -176,8 +142,8 @@ export class LocationsComponent implements AfterViewInit, OnDestroy {
       address: 'Skopje',
       city: 'Skopje',
       country: 'North Macedonia',
-      lat: 41.9945,
-      lng: 21.4198,
+      lat: 42.001477,
+      lng: 21.318199,
       type: 'partner'
     },
 
@@ -188,60 +154,39 @@ export class LocationsComponent implements AfterViewInit, OnDestroy {
       address: 'Centar',
       city: 'Bitola',
       country: 'North Macedonia',
-      lat: 41.0297,
-      lng: 21.3292,
+      lat: 41.03220848281758,
+      lng: 21.324683164165442,
       type: 'partner'
     },
     {
       id: 16,
-      name: 'Futura Market - Bair',
+      name: 'Futura Market',
       address: 'Bair',
       city: 'Bitola',
       country: 'North Macedonia',
-      lat: 41.0356,
-      lng: 21.3345,
+      lat: 41.016051984586376,
+      lng: 21.345275458959968,
       type: 'partner'
     },
-    {
-      id: 17,
-      name: 'Futura Market - Stara Čaršija',
-      address: 'Stara Čaršija',
-      city: 'Bitola',
-      country: 'North Macedonia',
-      lat: 41.0267,
-      lng: 21.3356,
-      type: 'partner'
-    },
-
     // DU-BO DD MARKETS - Kumanovo
     {
       id: 18,
-      name: 'Du-bo DD - Centar',
-      address: 'Centar',
+      name: 'Du-bo DD',
+      address: 'III-ta Makedonska Udarna Brigada 174, Kumanovo',
       city: 'Kumanovo',
       country: 'North Macedonia',
-      lat: 42.1322,
-      lng: 21.7144,
+      lat: 42.126204100987835,
+      lng: 21.730402348989557,
       type: 'partner'
     },
     {
       id: 19,
-      name: 'Du-bo DD - Prolet',
-      address: 'Prolet',
+      name: 'Du-bo DD',
+      address: 'Ivo Lola Ribar, Kumanovo 1300',
       city: 'Kumanovo',
       country: 'North Macedonia',
-      lat: 42.1289,
-      lng: 21.7234,
-      type: 'partner'
-    },
-    {
-      id: 20,
-      name: 'Du-bo DD - Sredorek',
-      address: 'Sredorek',
-      city: 'Kumanovo',
-      country: 'North Macedonia',
-      lat: 42.1378,
-      lng: 21.7089,
+      lat: 42.135952455620206,
+      lng: 21.726375266185666,
       type: 'partner'
     }
   ];
