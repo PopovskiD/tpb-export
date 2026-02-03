@@ -30,12 +30,12 @@ export class ContactComponent {
     {
       icon: 'map-pin',
       title: 'Address',
-      content: '123 Business District<br>City, Country 12345'
+      content: 'Skopje, Macedonia'
     },
     {
       icon: 'phone',
       title: 'Phone',
-      content: '+1 (234) 567-8900'
+      content: '+389 72 621 040'
     },
     {
       icon: 'mail',

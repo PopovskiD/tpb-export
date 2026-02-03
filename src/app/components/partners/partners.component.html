@@ -8,7 +8,7 @@
     <div class="partners-grid">
       <div class="partner-card" *ngFor="let partner of partners">
         <div class="partner-logo">
-          <span>{{ partner.logo }}</span>
+          <img [src]="'../../../assets/images/partners/' + partner.logo + '.png'" [alt]="partner.name" width="150" height="100">
         </div>
       </div>
     </div>

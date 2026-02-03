@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeroComponent } from './components/hero/hero.component';
-import { StatisticsComponent } from './components/statistics/statistics.component';
 import { AboutComponent } from './components/about/about.component';
 import { DistributionComponent } from './components/services/distribution/distribution.component';
 import { ImportExportComponent } from './components/services/import-export/import-export.component';
@@ -20,7 +19,6 @@ import { FooterComponent } from './components/footer/footer.component';
     CommonModule,
     NavbarComponent,
     HeroComponent,
-    StatisticsComponent,
     AboutComponent,
     DistributionComponent,
     ImportExportComponent,
