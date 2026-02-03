@@ -1,0 +1,49 @@
+<section id="locations" class="section locations">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Locations</h2>
+      <p>Find our offices, warehouses, and partner stores worldwide</p>
+    </div>
+
+    <div class="locations-content">
+      <div class="locations-sidebar">
+        <div class="legend">
+          <h4>Location Types</h4>
+          <div class="legend-item">
+            <span class="legend-dot" [style.background-color]="getTypeColor('office')"></span>
+            <span>Offices</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot" [style.background-color]="getTypeColor('warehouse')"></span>
+            <span>Warehouses</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot" [style.background-color]="getTypeColor('partner')"></span>
+            <span>Partner Stores</span>
+          </div>
+        </div>
+
+        <div class="locations-list">
+          <div class="location-group" *ngFor="let type of locationTypes">
+            <h5>{{ getTypeLabel(type) }}</h5>
+            <ul>
+              <li *ngFor="let location of getLocationsByType(type)"
+                  [class.active]="selectedLocation?.id === location.id"
+                  (click)="selectLocation(location)">
+                <span class="location-dot" [style.background-color]="getTypeColor(location.type)"></span>
+                <div class="location-info">
+                  <span class="location-name">{{ location.name }}</span>
+                  <span class="location-city">{{ location.city }}, {{ location.country }}</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-container">
+        <div id="locations-map"></div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,38 @@
+<section id="import-export" class="section service-section alternate">
+  <div class="container">
+    <div class="section-title">
+      <h2>Import & Export</h2>
+      <p>Your gateway to global markets</p>
+    </div>
+
+    <div class="service-content reverse">
+      <div class="service-details">
+        <h3>International Trade Expertise</h3>
+        <p>
+          With established partnerships across 20+ countries, we facilitate seamless
+          import and export operations for food and beverage products. Our team handles
+          everything from sourcing to delivery, ensuring compliance with international
+          trade regulations.
+        </p>
+
+        <div class="services-list">
+          <div class="service-item" *ngFor="let service of services">
+            <div class="service-icon" [innerHTML]="getIconSvg(service.icon)"></div>
+            <div class="service-content-item">
+              <h4>{{ service.title }}</h4>
+              <p>{{ service.description }}</p>
+            </div>
+          </div>
+        </div>
+
+        <a href="#contact" class="btn btn-primary">Start Trading</a>
+      </div>
+
+      <div class="service-image">
+        <div class="image-placeholder">
+          <span>Global Trade Network</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

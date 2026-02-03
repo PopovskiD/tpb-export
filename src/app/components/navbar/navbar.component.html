@@ -1,0 +1,62 @@
+<nav class="navbar" [class.scrolled]="isScrolled">
+  <div class="container navbar-container">
+    <a href="#" class="logo" (click)="scrollToSection($event, '#hero')">
+      <span class="logo-text">TPB</span>
+      <span class="logo-subtext">Export</span>
+    </a>
+
+    <ul class="nav-menu" [class.active]="isMobileMenuOpen">
+      <li class="nav-item" *ngFor="let item of menuItems">
+        <a
+          [href]="item.href"
+          class="nav-link"
+          (click)="scrollToSection($event, item.href)">
+          {{ item.label | translate }}
+        </a>
+      </li>
+      <li class="nav-item lang-switcher-mobile">
+        <div class="lang-buttons">
+          <button
+            [class.active]="currentLang === 'mk'"
+            (click)="switchLanguage('mk')">
+            MK
+          </button>
+          <button
+            [class.active]="currentLang === 'en'"
+            (click)="switchLanguage('en')">
+            EN
+          </button>
+        </div>
+      </li>
+    </ul>
+
+    <div class="lang-switcher">
+      <button
+        [class.active]="currentLang === 'mk'"
+        (click)="switchLanguage('mk')">
+        MK
+      </button>
+      <button
+        [class.active]="currentLang === 'en'"
+        (click)="switchLanguage('en')">
+        EN
+      </button>
+    </div>
+
+    <button
+      class="hamburger"
+      [class.active]="isMobileMenuOpen"
+      (click)="toggleMobileMenu()"
+      aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<div
+  class="mobile-overlay"
+  [class.active]="isMobileMenuOpen"
+  (click)="closeMobileMenu()">
+</div>

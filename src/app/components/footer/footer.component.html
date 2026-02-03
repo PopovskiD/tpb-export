@@ -1,0 +1,62 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="#" class="logo" (click)="scrollToSection($event, '#hero')">
+          <span class="logo-text">TPB</span>
+          <span class="logo-subtext">Export</span>
+        </a>
+        <p class="brand-description">
+          Your trusted partner in food and beverage distribution, import/export,
+          and retail solutions.
+        </p>
+        <div class="social-links">
+          <a
+            *ngFor="let social of socialLinks"
+            [href]="social.url"
+            class="social-link"
+            [attr.aria-label]="social.name"
+            target="_blank"
+            rel="noopener noreferrer">
+            <span [innerHTML]="getIconSvg(social.icon)"></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h4>Services</h4>
+        <ul>
+          <li *ngFor="let link of quickLinks">
+            <a [href]="link.href" (click)="scrollToSection($event, link.href)">
+              {{ link.label }}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Company</h4>
+        <ul>
+          <li *ngFor="let link of companyLinks">
+            <a [href]="link.href" (click)="scrollToSection($event, link.href)">
+              {{ link.label }}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-newsletter">
+        <h4>Stay Updated</h4>
+        <p>Subscribe to our newsletter for the latest news and updates.</p>
+        <form class="newsletter-form" (submit)="$event.preventDefault()">
+          <input type="email" placeholder="Enter your email" required>
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {{ currentYear }} TPB Export. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

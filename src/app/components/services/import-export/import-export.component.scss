@@ -1,0 +1,106 @@
+@use '../../../../styles/variables' as *;
+
+.service-section {
+  &.alternate {
+    background-color: $light-gray;
+  }
+}
+
+.service-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-2xl;
+  align-items: center;
+
+  @media (min-width: $breakpoint-lg) {
+    grid-template-columns: 1fr 1fr;
+
+    &.reverse {
+      .service-details {
+        order: 1;
+      }
+
+      .service-image {
+        order: 2;
+      }
+    }
+  }
+}
+
+.service-image {
+  .image-placeholder {
+    width: 100%;
+    height: 350px;
+    background: linear-gradient(135deg, $secondary-color 0%, darken($secondary-color, 15%) 100%);
+    border-radius: $border-radius-lg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: $font-size-lg;
+
+    @media (min-width: $breakpoint-lg) {
+      height: 450px;
+    }
+  }
+}
+
+.service-details {
+  h3 {
+    color: $primary-color;
+    margin-bottom: $spacing-md;
+  }
+
+  > p {
+    color: $dark-gray;
+    line-height: 1.8;
+    margin-bottom: $spacing-xl;
+  }
+}
+
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+  margin-bottom: $spacing-xl;
+}
+
+.service-item {
+  display: flex;
+  gap: $spacing-md;
+  align-items: flex-start;
+  padding: $spacing-md;
+  background-color: white;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-sm;
+  transition: transform $transition-base, box-shadow $transition-base;
+
+  &:hover {
+    transform: translateX(5px);
+    box-shadow: $shadow-md;
+  }
+
+  .service-icon {
+    color: $secondary-color;
+    flex-shrink: 0;
+
+    ::ng-deep svg {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .service-content-item {
+    h4 {
+      color: $primary-color;
+      font-size: $font-size-base;
+      margin-bottom: $spacing-xs;
+    }
+
+    p {
+      color: $dark-gray;
+      font-size: $font-size-sm;
+      line-height: 1.6;
+    }
+  }
+}

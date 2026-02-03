@@ -1,0 +1,207 @@
+@use '../../../styles/variables' as *;
+
+.locations {
+  background-color: white;
+}
+
+.locations-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-xl;
+
+  @media (min-width: $breakpoint-lg) {
+    grid-template-columns: 300px 1fr;
+  }
+}
+
+.locations-sidebar {
+  background-color: $light-gray;
+  border-radius: $border-radius-lg;
+  padding: $spacing-lg;
+  max-height: 600px;
+  overflow-y: auto;
+
+  @media (min-width: $breakpoint-lg) {
+    max-height: 500px;
+  }
+}
+
+.legend {
+  margin-bottom: $spacing-xl;
+  padding-bottom: $spacing-lg;
+  border-bottom: 1px solid $medium-gray;
+
+  h4 {
+    color: $primary-color;
+    font-size: $font-size-base;
+    margin-bottom: $spacing-md;
+  }
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-sm;
+  font-size: $font-size-sm;
+  color: $dark-gray;
+}
+
+.legend-dot,
+.location-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.locations-list {
+  .location-group {
+    margin-bottom: $spacing-lg;
+
+    h5 {
+      color: $primary-color;
+      font-size: $font-size-sm;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: $spacing-sm;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+      padding: $spacing-sm;
+      margin-bottom: $spacing-xs;
+      border-radius: $border-radius-md;
+      cursor: pointer;
+      transition: all $transition-fast;
+
+      &:hover {
+        background-color: white;
+      }
+
+      &.active {
+        background-color: white;
+        box-shadow: $shadow-sm;
+
+        .location-name {
+          color: $primary-color;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+.location-info {
+  display: flex;
+  flex-direction: column;
+
+  .location-name {
+    font-size: $font-size-sm;
+    color: $text-color;
+    transition: color $transition-fast;
+  }
+
+  .location-city {
+    font-size: $font-size-xs;
+    color: $dark-gray;
+  }
+}
+
+.map-container {
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  box-shadow: $shadow-md;
+  min-height: 400px;
+
+  @media (min-width: $breakpoint-lg) {
+    min-height: 500px;
+  }
+
+  #locations-map {
+    width: 100%;
+    height: 400px;
+
+    @media (min-width: $breakpoint-lg) {
+      height: 500px;
+    }
+  }
+}
+
+// Custom Leaflet marker styles
+:host ::ng-deep {
+  .custom-marker {
+    background: transparent;
+    border: none;
+  }
+
+  .marker-pin {
+    width: 36px;
+    height: 36px;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10px;
+      height: 10px;
+      background: inherit;
+      border-radius: 0 0 50% 50%;
+    }
+  }
+
+  .marker-icon {
+    transform: rotate(45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .map-popup {
+    min-width: 200px;
+
+    h4 {
+      color: $primary-color;
+      font-size: $font-size-base;
+      margin-bottom: $spacing-xs;
+      font-weight: 600;
+    }
+
+    .popup-address {
+      font-size: $font-size-sm;
+      color: $dark-gray;
+      margin-bottom: $spacing-xs;
+      line-height: 1.4;
+    }
+
+    .popup-phone,
+    .popup-email {
+      font-size: $font-size-sm;
+      color: $text-color;
+      margin: $spacing-xs 0;
+    }
+  }
+
+  .leaflet-popup-content-wrapper {
+    border-radius: $border-radius-md;
+  }
+
+  .leaflet-popup-content {
+    margin: $spacing-md;
+  }
+}

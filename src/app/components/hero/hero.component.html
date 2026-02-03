@@ -1,0 +1,19 @@
+<section id="hero" class="hero">
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <h1 class="hero-title">{{ 'HERO.TITLE' | translate }}</h1>
+    <p class="hero-subtitle">{{ 'HERO.SUBTITLE' | translate }}</p>
+    <div class="hero-buttons">
+      <a href="#about" class="btn btn-primary" (click)="scrollToSection($event, '#about')">
+        {{ 'HERO.LEARN_MORE' | translate }}
+      </a>
+      <a href="#contact" class="btn btn-secondary" (click)="scrollToSection($event, '#contact')">
+        {{ 'HERO.CONTACT_US' | translate }}
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll-indicator">
+    <span class="scroll-text">Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>

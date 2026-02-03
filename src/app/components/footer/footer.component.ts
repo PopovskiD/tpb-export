@@ -1,0 +1,52 @@
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-footer',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './footer.component.html',
+  styleUrls: ['./footer.component.scss']
+})
+export class FooterComponent {
+  currentYear = new Date().getFullYear();
+
+  quickLinks = [
+    { label: 'About Us', href: '#about' },
+    { label: 'Distribution', href: '#distribution' },
+    { label: 'Import/Export', href: '#import-export' },
+    { label: 'Retail', href: '#retail' }
+  ];
+
+  companyLinks = [
+    { label: 'Career', href: '#career' },
+    { label: 'Contact', href: '#contact' },
+    { label: 'Privacy Policy', href: '#' },
+    { label: 'Terms of Service', href: '#' }
+  ];
+
+  socialLinks = [
+    { name: 'Facebook', icon: 'facebook', url: '#' },
+    { name: 'LinkedIn', icon: 'linkedin', url: '#' },
+    { name: 'Twitter', icon: 'twitter', url: '#' },
+    { name: 'Instagram', icon: 'instagram', url: '#' }
+  ];
+
+  scrollToSection(event: Event, href: string) {
+    event.preventDefault();
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  getIconSvg(icon: string): string {
+    const icons: { [key: string]: string } = {
+      facebook: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>`,
+      linkedin: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>`,
+      twitter: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>`,
+      instagram: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>`
+    };
+    return icons[icon] || '';
+  }
+}

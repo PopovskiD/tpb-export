@@ -1,0 +1,273 @@
+@use '../../../styles/variables' as *;
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-index-fixed;
+  padding: $spacing-md 0;
+  transition: all $transition-base;
+  background-color: transparent;
+
+  &.scrolled {
+    background-color: white;
+    box-shadow: $shadow-md;
+    padding: $spacing-sm 0;
+
+    .logo-text,
+    .logo-subtext {
+      color: $primary-color;
+    }
+
+    .nav-link {
+      color: $text-color;
+
+      &:hover {
+        color: $secondary-color;
+      }
+    }
+
+    .hamburger span {
+      background-color: $primary-color;
+    }
+  }
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: baseline;
+  gap: $spacing-xs;
+  font-family: $font-family-heading;
+  text-decoration: none;
+
+  &-text {
+    font-size: $font-size-2xl;
+    font-weight: 700;
+    color: white;
+    transition: color $transition-base;
+  }
+
+  &-subtext {
+    font-size: $font-size-lg;
+    font-weight: 400;
+    color: $secondary-color;
+    transition: color $transition-base;
+  }
+}
+
+.nav-menu {
+  display: flex;
+  gap: $spacing-xl;
+
+  @media (max-width: $breakpoint-lg) {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    flex-direction: column;
+    background-color: white;
+    padding: $spacing-3xl $spacing-xl;
+    gap: $spacing-lg;
+    transition: right $transition-base;
+    box-shadow: $shadow-xl;
+
+    &.active {
+      right: 0;
+    }
+  }
+}
+
+.nav-item {
+  list-style: none;
+}
+
+.nav-link {
+  color: white;
+  font-weight: 500;
+  font-size: $font-size-base;
+  transition: color $transition-fast;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: $secondary-color;
+    transition: width $transition-fast;
+  }
+
+  &:hover {
+    color: $secondary-color;
+
+    &::after {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: $breakpoint-lg) {
+    color: $text-color;
+    font-size: $font-size-lg;
+  }
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: $z-index-modal;
+
+  @media (max-width: $breakpoint-lg) {
+    display: flex;
+  }
+
+  span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    transition: all $transition-fast;
+  }
+
+  &.active {
+    span {
+      background-color: $primary-color;
+
+      &:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+    }
+  }
+}
+
+.lang-switcher {
+  display: flex;
+  gap: $spacing-xs;
+  margin-left: $spacing-lg;
+
+  @media (max-width: $breakpoint-lg) {
+    display: none;
+  }
+
+  button {
+    background: transparent;
+    border: 1px solid rgba(white, 0.5);
+    color: white;
+    padding: $spacing-xs $spacing-sm;
+    font-size: $font-size-sm;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: $border-radius-sm;
+    transition: all $transition-fast;
+
+    &:hover {
+      background-color: rgba(white, 0.1);
+    }
+
+    &.active {
+      background-color: $secondary-color;
+      border-color: $secondary-color;
+      color: white;
+    }
+  }
+
+  .scrolled & {
+    button {
+      border-color: $primary-color;
+      color: $primary-color;
+
+      &:hover {
+        background-color: rgba($primary-color, 0.1);
+      }
+
+      &.active {
+        background-color: $secondary-color;
+        border-color: $secondary-color;
+        color: white;
+      }
+    }
+  }
+}
+
+.lang-switcher-mobile {
+  display: none;
+
+  @media (max-width: $breakpoint-lg) {
+    display: block;
+    margin-top: $spacing-lg;
+    padding-top: $spacing-lg;
+    border-top: 1px solid $medium-gray;
+  }
+
+  .lang-buttons {
+    display: flex;
+    gap: $spacing-sm;
+
+    button {
+      flex: 1;
+      background: transparent;
+      border: 1px solid $primary-color;
+      color: $primary-color;
+      padding: $spacing-sm $spacing-md;
+      font-size: $font-size-base;
+      font-weight: 500;
+      cursor: pointer;
+      border-radius: $border-radius-md;
+      transition: all $transition-fast;
+
+      &:hover {
+        background-color: rgba($primary-color, 0.1);
+      }
+
+      &.active {
+        background-color: $secondary-color;
+        border-color: $secondary-color;
+        color: white;
+      }
+    }
+  }
+}
+
+.mobile-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: $z-index-sticky;
+  opacity: 0;
+  transition: opacity $transition-base;
+
+  @media (max-width: $breakpoint-lg) {
+    &.active {
+      display: block;
+      opacity: 1;
+    }
+  }
+}
