@@ -6,10 +6,52 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 15%) 100%);
-  background-size: cover;
+  background-image: url('../../../assets/images/TPB logo.png');
+  background-size: 60%;
+  background-repeat: no-repeat;
   background-position: center;
-  background-attachment: fixed;
+  background-origin: content-box;
+  padding: 80px;
+  overflow: hidden;
+
+  @media (min-width: $breakpoint-md) {
+    background-size: 50%;
+    padding: 100px;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    background-size: 40%;
+    padding: 120px;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -50px;
+    width: 400px;
+    height: 400px;
+    background-image: url('../../../assets/images/TPB logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.08;
+    z-index: 0;
+    pointer-events: none;
+
+    @media (min-width: $breakpoint-md) {
+      width: 500px;
+      height: 500px;
+      top: -80px;
+      left: -80px;
+    }
+
+    @media (min-width: $breakpoint-lg) {
+      width: 600px;
+      height: 600px;
+      top: -100px;
+      left: -100px;
+    }
+  }
 }
 
 .hero-overlay {
