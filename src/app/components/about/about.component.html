@@ -1,36 +1,25 @@
 <section id="about" class="section about">
   <div class="container">
     <div class="section-title">
-      <h2>About Us</h2>
-      <p>Leading the way in food and beverage distribution across the globe</p>
+      <h2>{{ 'ABOUT.TITLE' | translate }}</h2>
+      <p>{{ 'ABOUT.SUBTITLE' | translate }}</p>
     </div>
 
     <div class="about-content">
       <div class="about-text">
         <div class="about-intro">
-          <h3>Who We Are</h3>
-          <p>
-            TPB-export is a company established in Macedonia by four partners who had a vision to unite the best products from Africa, and present them to the EU market.
-             We have organized ourselves to provide these products with a passion to help stimulate economic development between these two markets while sharing their great products with our Europian friends and families from all backgrounds.
-             Our goal will be to continue to import and represent products and companies that have high quality for the best value.
-          </p>
+          <h3>{{ 'ABOUT.WHO_WE_ARE' | translate }}</h3>
+          <p>{{ 'ABOUT.WHO_WE_ARE_TEXT' | translate }}</p>
         </div>
 
         <div class="mission-vision">
           <div class="mission">
-            <h4>Our Mission</h4>
-            <p>
-              To be the trusted bridge between quality food and beverage producers and
-              markets worldwide, delivering excellence in distribution, import/export,
-              and retail services.
-            </p>
+            <h4>{{ 'ABOUT.MISSION' | translate }}</h4>
+            <p>{{ 'ABOUT.MISSION_TEXT' | translate }}</p>
           </div>
           <div class="vision">
-            <h4>Our Vision</h4>
-            <p>
-              To become the leading distribution partner in the food and beverage industry,
-              recognized for our reliability, innovation, and commitment to customer satisfaction.
-            </p>
+            <h4>{{ 'ABOUT.VISION' | translate }}</h4>
+            <p>{{ 'ABOUT.VISION_TEXT' | translate }}</p>
           </div>
         </div>
       </div>
@@ -38,17 +27,6 @@
       <div class="about-image">
         <div class="image-placeholder">
           <span><source><img src="../../../assets/images/TPB logo.png" alt="" width="300" height="300"></span>
-        </div>
-      </div>
-    </div>
-
-    <div class="values-section">
-      <h3>Our Values</h3>
-      <div class="values-grid">
-        <div class="value-card" *ngFor="let value of values">
-          <div class="value-icon" [innerHTML]="getIconSvg(value.icon)"></div>
-          <h4>{{ value.title }}</h4>
-          <p>{{ value.description }}</p>
         </div>
       </div>
     </div>

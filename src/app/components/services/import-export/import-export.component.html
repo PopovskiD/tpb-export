@@ -1,36 +1,31 @@
 <section id="import-export" class="section service-section alternate">
   <div class="container">
     <div class="section-title">
-      <h2>Import & Export</h2>
-      <p>Your gateway to global markets</p>
+      <h2>{{ 'IMPORT_EXPORT.TITLE' | translate }}</h2>
+      <p>{{ 'IMPORT_EXPORT.SUBTITLE' | translate }}</p>
     </div>
 
     <div class="service-content reverse">
       <div class="service-details">
-        <h3>International Trade Expertise</h3>
-        <p>
-          With established partnerships across 20+ countries, we facilitate seamless
-          import and export operations for food and beverage products. Our team handles
-          everything from sourcing to delivery, ensuring compliance with international
-          trade regulations.
-        </p>
+        <h3>{{ 'IMPORT_EXPORT.HEADING' | translate }}</h3>
+        <p>{{ 'IMPORT_EXPORT.TEXT' | translate }}</p>
 
         <div class="services-list">
           <div class="service-item" *ngFor="let service of services">
             <div class="service-icon" [innerHTML]="getIconSvg(service.icon)"></div>
             <div class="service-content-item">
-              <h4>{{ service.title }}</h4>
-              <p>{{ service.description }}</p>
+              <h4>{{ service.titleKey | translate }}</h4>
+              <p>{{ service.descriptionKey | translate }}</p>
             </div>
           </div>
         </div>
 
-        <a href="#contact" class="btn btn-primary">Start Trading</a>
+        <a href="#contact" class="btn btn-primary">{{ 'IMPORT_EXPORT.START_TRADING' | translate }}</a>
       </div>
 
       <div class="service-image">
         <div class="image-placeholder">
-          <span>Global Trade Network</span>
+          <span>{{ 'IMPORT_EXPORT.HEADING' | translate }}</span>
         </div>
       </div>
     </div>

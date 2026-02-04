@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-distribution',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './distribution.component.html',
   styleUrls: ['./distribution.component.scss']
 })
@@ -12,23 +13,23 @@ export class DistributionComponent {
   features = [
     {
       icon: 'truck',
-      title: 'Nationwide Delivery',
-      description: 'Comprehensive logistics network ensuring timely delivery across all regions.'
+      titleKey: 'DISTRIBUTION.NATIONWIDE',
+      descriptionKey: 'DISTRIBUTION.NATIONWIDE_TEXT'
     },
     {
       icon: 'package',
-      title: 'Warehousing',
-      description: 'State-of-the-art storage facilities with temperature-controlled environments.'
+      titleKey: 'DISTRIBUTION.WAREHOUSING',
+      descriptionKey: 'DISTRIBUTION.WAREHOUSING_TEXT'
     },
     {
       icon: 'clipboard',
-      title: 'Inventory Management',
-      description: 'Advanced tracking systems for real-time inventory visibility.'
+      titleKey: 'DISTRIBUTION.INVENTORY',
+      descriptionKey: 'DISTRIBUTION.INVENTORY_TEXT'
     },
     {
       icon: 'refresh',
-      title: 'Supply Chain Solutions',
-      description: 'End-to-end supply chain management tailored to your needs.'
+      titleKey: 'DISTRIBUTION.SUPPLY_CHAIN',
+      descriptionKey: 'DISTRIBUTION.SUPPLY_CHAIN_TEXT'
     }
   ];
 

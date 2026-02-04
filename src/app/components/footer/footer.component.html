@@ -6,10 +6,7 @@
           <span class="logo-text">TPB</span>
           <span class="logo-subtext">Export</span>
         </a>
-        <p class="brand-description">
-          Your trusted partner in food and beverage distribution, import/export,
-          and retail solutions.
-        </p>
+        <p class="brand-description">{{ 'FOOTER.DESCRIPTION' | translate }}</p>
         <div class="social-links">
           <a
             *ngFor="let social of socialLinks"
@@ -24,39 +21,39 @@
       </div>
 
       <div class="footer-links">
-        <h4>Services</h4>
+        <h4>{{ 'FOOTER.SERVICES' | translate }}</h4>
         <ul>
           <li *ngFor="let link of quickLinks">
             <a [href]="link.href" (click)="scrollToSection($event, link.href)">
-              {{ link.label }}
+              {{ link.labelKey | translate }}
             </a>
           </li>
         </ul>
       </div>
 
       <div class="footer-links">
-        <h4>Company</h4>
+        <h4>{{ 'FOOTER.COMPANY' | translate }}</h4>
         <ul>
           <li *ngFor="let link of companyLinks">
             <a [href]="link.href" (click)="scrollToSection($event, link.href)">
-              {{ link.label }}
+              {{ link.labelKey | translate }}
             </a>
           </li>
         </ul>
       </div>
 
       <div class="footer-newsletter">
-        <h4>Stay Updated</h4>
-        <p>Subscribe to our newsletter for the latest news and updates.</p>
+        <h4>{{ 'FOOTER.NEWSLETTER' | translate }}</h4>
+        <p>{{ 'FOOTER.NEWSLETTER_TEXT' | translate }}</p>
         <form class="newsletter-form" (submit)="$event.preventDefault()">
-          <input type="email" placeholder="Enter your email" required>
-          <button type="submit" class="btn btn-primary">Subscribe</button>
+          <input type="email" [placeholder]="'FOOTER.EMAIL_PLACEHOLDER' | translate" required>
+          <button type="submit" class="btn btn-primary">{{ 'FOOTER.SUBSCRIBE' | translate }}</button>
         </form>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; {{ currentYear }} TPB Export. All rights reserved.</p>
+      <p>&copy; {{ currentYear }} {{ 'FOOTER.COPYRIGHT' | translate }}</p>
     </div>
   </div>
 </footer>

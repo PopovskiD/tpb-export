@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
@@ -12,17 +13,16 @@ export class FooterComponent {
   currentYear = new Date().getFullYear();
 
   quickLinks = [
-    { label: 'About Us', href: '#about' },
-    { label: 'Distribution', href: '#distribution' },
-    { label: 'Import/Export', href: '#import-export' },
-    { label: 'Retail', href: '#retail' }
+    { labelKey: 'NAV.ABOUT', href: '#about' },
+    { labelKey: 'NAV.DISTRIBUTION', href: '#distribution' },
+    { labelKey: 'NAV.IMPORT_EXPORT', href: '#import-export' },
+    { labelKey: 'NAV.RETAIL', href: '#retail' }
   ];
 
   companyLinks = [
-    { label: 'Career', href: '#career' },
-    { label: 'Contact', href: '#contact' },
-    { label: 'Privacy Policy', href: '#' },
-    { label: 'Terms of Service', href: '#' }
+    { labelKey: 'NAV.CONTACT', href: '#contact' },
+    { labelKey: 'FOOTER.PRIVACY', href: '#' },
+    { labelKey: 'FOOTER.TERMS', href: '#' }
   ];
 
   socialLinks = [

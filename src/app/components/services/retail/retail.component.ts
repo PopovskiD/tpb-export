@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-retail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './retail.component.html',
   styleUrls: ['./retail.component.scss']
 })
@@ -12,23 +13,23 @@ export class RetailComponent {
   offerings = [
     {
       icon: 'shopping-bag',
-      title: 'Product Range',
-      description: 'Curated selection of premium food and beverage products for retail.'
+      titleKey: 'RETAIL.PRODUCT_RANGE',
+      descriptionKey: 'RETAIL.PRODUCT_RANGE_TEXT'
     },
     {
       icon: 'tag',
-      title: 'Competitive Pricing',
-      description: 'Wholesale pricing that helps you maintain healthy margins.'
+      titleKey: 'RETAIL.PRICING',
+      descriptionKey: 'RETAIL.PRICING_TEXT'
     },
     {
       icon: 'headphones',
-      title: 'Retail Support',
-      description: 'Marketing materials and merchandising support for partners.'
+      titleKey: 'RETAIL.SUPPORT',
+      descriptionKey: 'RETAIL.SUPPORT_TEXT'
     },
     {
       icon: 'zap',
-      title: 'Quick Replenishment',
-      description: 'Fast restocking to keep your shelves always full.'
+      titleKey: 'RETAIL.REPLENISHMENT',
+      descriptionKey: 'RETAIL.REPLENISHMENT_TEXT'
     }
   ];
 

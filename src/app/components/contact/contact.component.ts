@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 interface ContactForm {
   name: string;
@@ -13,7 +14,7 @@ interface ContactForm {
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, TranslateModule],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
@@ -29,23 +30,23 @@ export class ContactComponent {
   contactInfo = [
     {
       icon: 'map-pin',
-      title: 'Address',
-      content: 'Skopje, Macedonia'
+      titleKey: 'CONTACT.ADDRESS',
+      contentKey: 'CONTACT.ADDRESS_VALUE'
     },
     {
       icon: 'phone',
-      title: 'Phone',
+      titleKey: 'CONTACT.PHONE',
       content: '+389 72 621 040'
     },
     {
       icon: 'mail',
-      title: 'Email',
+      titleKey: 'CONTACT.EMAIL',
       content: 'info@tpb-export.com'
     },
     {
       icon: 'clock',
-      title: 'Working Hours',
-      content: 'Mon - Fri: 9:00 AM - 6:00 PM'
+      titleKey: 'CONTACT.WORKING_HOURS',
+      contentKey: 'CONTACT.WORKING_HOURS_VALUE'
     }
   ];
 

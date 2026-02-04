@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-import-export',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './import-export.component.html',
   styleUrls: ['./import-export.component.scss']
 })
@@ -12,23 +13,23 @@ export class ImportExportComponent {
   services = [
     {
       icon: 'globe',
-      title: 'Global Sourcing',
-      description: 'Access to quality products from trusted suppliers worldwide.'
+      titleKey: 'IMPORT_EXPORT.GLOBAL_SOURCING',
+      descriptionKey: 'IMPORT_EXPORT.GLOBAL_SOURCING_TEXT'
     },
     {
       icon: 'file-text',
-      title: 'Documentation',
-      description: 'Complete handling of import/export documentation and compliance.'
+      titleKey: 'IMPORT_EXPORT.DOCUMENTATION',
+      descriptionKey: 'IMPORT_EXPORT.DOCUMENTATION_TEXT'
     },
     {
       icon: 'anchor',
-      title: 'Customs Clearance',
-      description: 'Expert navigation of customs procedures and regulations.'
+      titleKey: 'IMPORT_EXPORT.CUSTOMS',
+      descriptionKey: 'IMPORT_EXPORT.CUSTOMS_TEXT'
     },
     {
       icon: 'shield',
-      title: 'Quality Assurance',
-      description: 'Rigorous quality control at every step of the process.'
+      titleKey: 'IMPORT_EXPORT.QUALITY',
+      descriptionKey: 'IMPORT_EXPORT.QUALITY_TEXT'
     }
   ];
 

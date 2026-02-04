@@ -1,84 +1,84 @@
 <section id="contact" class="section contact">
   <div class="container">
     <div class="section-title">
-      <h2>Contact Us</h2>
-      <p>Get in touch with our team</p>
+      <h2>{{ 'CONTACT.TITLE' | translate }}</h2>
+      <p>{{ 'CONTACT.SUBTITLE' | translate }}</p>
     </div>
 
     <div class="contact-content">
       <div class="contact-form-wrapper">
-        <h3>Send us a Message</h3>
+        <h3>{{ 'CONTACT.SEND_MESSAGE' | translate }}</h3>
         <form class="contact-form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
           <div class="form-row">
             <div class="form-group">
-              <label for="name">Full Name *</label>
+              <label for="name">{{ 'CONTACT.NAME' | translate }} {{ 'COMMON.REQUIRED' | translate }}</label>
               <input
                 type="text"
                 id="name"
                 name="name"
                 [(ngModel)]="formData.name"
                 required
-                placeholder="Your name">
+                [placeholder]="'CONTACT.NAME_PLACEHOLDER' | translate">
             </div>
             <div class="form-group">
-              <label for="email">Email *</label>
+              <label for="email">{{ 'CONTACT.EMAIL' | translate }} {{ 'COMMON.REQUIRED' | translate }}</label>
               <input
                 type="email"
                 id="email"
                 name="email"
                 [(ngModel)]="formData.email"
                 required
-                placeholder="your.email@example.com">
+                [placeholder]="'CONTACT.EMAIL_PLACEHOLDER' | translate">
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
-              <label for="phone">Phone</label>
+              <label for="phone">{{ 'CONTACT.PHONE' | translate }}</label>
               <input
                 type="tel"
                 id="phone"
                 name="phone"
                 [(ngModel)]="formData.phone"
-                placeholder="+1 (234) 567-8900">
+                [placeholder]="'CONTACT.PHONE_PLACEHOLDER' | translate">
             </div>
             <div class="form-group">
-              <label for="subject">Subject *</label>
+              <label for="subject">{{ 'CONTACT.SUBJECT' | translate }} {{ 'COMMON.REQUIRED' | translate }}</label>
               <input
                 type="text"
                 id="subject"
                 name="subject"
                 [(ngModel)]="formData.subject"
                 required
-                placeholder="How can we help?">
+                [placeholder]="'CONTACT.SUBJECT_PLACEHOLDER' | translate">
             </div>
           </div>
 
           <div class="form-group">
-            <label for="message">Message *</label>
+            <label for="message">{{ 'CONTACT.MESSAGE' | translate }} {{ 'COMMON.REQUIRED' | translate }}</label>
             <textarea
               id="message"
               name="message"
               [(ngModel)]="formData.message"
               required
               rows="5"
-              placeholder="Your message..."></textarea>
+              [placeholder]="'CONTACT.MESSAGE_PLACEHOLDER' | translate"></textarea>
           </div>
 
           <button type="submit" class="btn btn-primary" [disabled]="!contactForm.form.valid">
-            Send Message
+            {{ 'CONTACT.SEND' | translate }}
           </button>
         </form>
       </div>
 
       <div class="contact-info">
-        <h3>Contact Information</h3>
+        <h3>{{ 'CONTACT.INFO_TITLE' | translate }}</h3>
         <div class="info-list">
           <div class="info-item" *ngFor="let info of contactInfo">
             <div class="info-icon" [innerHTML]="getIconSvg(info.icon)"></div>
             <div class="info-content">
-              <h4>{{ info.title }}</h4>
-              <p [innerHTML]="info.content"></p>
+              <h4>{{ info.titleKey | translate }}</h4>
+              <p [innerHTML]="info.contentKey ? (info.contentKey | translate) : info.content"></p>
             </div>
           </div>
         </div>

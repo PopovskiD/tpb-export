@@ -1,5 +1,6 @@
 import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import * as L from 'leaflet';
 
 interface StoreLocation {
@@ -18,7 +19,7 @@ interface StoreLocation {
 @Component({
   selector: 'app-locations',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './locations.component.html',
   styleUrls: ['./locations.component.scss']
 })
@@ -27,6 +28,8 @@ export class LocationsComponent implements AfterViewInit, OnDestroy {
   private markers: L.Marker[] = [];
   selectedLocation: StoreLocation | null = null;
   locationTypes: Array<'partner'> = ['partner'];
+
+  constructor(private translate: TranslateService) {}
 
   // Partner store locations in Macedonia
   storeLocations: StoreLocation[] = [
@@ -297,10 +300,12 @@ export class LocationsComponent implements AfterViewInit, OnDestroy {
   }
 
   getTypeLabel(type: string): string {
-    const labels: { [key: string]: string } = {
-      partner: 'Partner Stores'
+    const keys: { [key: string]: string } = {
+      partner: 'LOCATIONS.PARTNER_STORES',
+      warehouse: 'LOCATIONS.WAREHOUSES',
+      office: 'LOCATIONS.OFFICES'
     };
-    return labels[type] || type;
+    return this.translate.instant(keys[type] || type);
   }
 
   getTypeColor(type: string): string {

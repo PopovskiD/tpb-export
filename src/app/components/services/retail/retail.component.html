@@ -1,34 +1,30 @@
 <section id="retail" class="section service-section">
   <div class="container">
     <div class="section-title">
-      <h2>Retail Solutions</h2>
-      <p>Empowering retailers with premium products and support</p>
+      <h2>{{ 'RETAIL.TITLE' | translate }}</h2>
+      <p>{{ 'RETAIL.SUBTITLE' | translate }}</p>
     </div>
 
     <div class="service-content">
       <div class="service-image">
         <div class="image-placeholder">
-          <span>Retail Partnership</span>
+          <span>{{ 'RETAIL.HEADING' | translate }}</span>
         </div>
       </div>
 
       <div class="service-details">
-        <h3>Partner with Us for Retail Success</h3>
-        <p>
-          We support retail partners with a comprehensive range of food and beverage
-          products, competitive pricing, and dedicated support services. Our retail
-          solutions are designed to help your business thrive in a competitive market.
-        </p>
+        <h3>{{ 'RETAIL.HEADING' | translate }}</h3>
+        <p>{{ 'RETAIL.TEXT' | translate }}</p>
 
         <div class="offerings-grid">
           <div class="offering-card" *ngFor="let offering of offerings">
             <div class="offering-icon" [innerHTML]="getIconSvg(offering.icon)"></div>
-            <h4>{{ offering.title }}</h4>
-            <p>{{ offering.description }}</p>
+            <h4>{{ offering.titleKey | translate }}</h4>
+            <p>{{ offering.descriptionKey | translate }}</p>
           </div>
         </div>
 
-        <a href="#contact" class="btn btn-primary">Become a Partner</a>
+        <a href="#contact" class="btn btn-primary">{{ 'RETAIL.BECOME_PARTNER' | translate }}</a>
       </div>
     </div>
   </div>

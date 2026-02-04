@@ -1,36 +1,15 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent {
-  values = [
-    {
-      icon: 'shield',
-      title: 'Integrity',
-      description: 'We conduct our business with the highest ethical standards and transparency.'
-    },
-    {
-      icon: 'star',
-      title: 'Excellence',
-      description: 'We strive for excellence in every product we distribute and every service we provide.'
-    },
-    {
-      icon: 'users',
-      title: 'Partnership',
-      description: 'We build lasting relationships with our partners, suppliers, and customers.'
-    },
-    {
-      icon: 'trending-up',
-      title: 'Innovation',
-      description: 'We continuously improve our processes and adapt to market changes.'
-    }
-  ];
 
   getIconSvg(icon: string): string {
     const icons: { [key: string]: string } = {
