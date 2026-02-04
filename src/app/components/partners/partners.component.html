@@ -13,6 +13,31 @@
       </div>
     </div>
 
+    <div class="locations-content">
+      <div class="locations-sidebar">
+        <div class="locations-list">
+          <div class="location-group" *ngFor="let type of locationTypes">
+            <h5>{{ getTypeLabel(type) }}</h5>
+            <ul>
+              <li *ngFor="let location of getLocationsByType(type)"
+                  [class.active]="selectedLocation?.id === location.id"
+                  (click)="selectLocation(location)">
+                <span class="location-dot" [style.background-color]="getTypeColor(location.type)"></span>
+                <div class="location-info">
+                  <span class="location-name">{{ location.name }}</span>
+                  <span class="location-city">{{ location.city }}, {{ location.country }}</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-container">
+        <div id="partners-map"></div>
+      </div>
+    </div>
+
     <div class="partners-cta">
       <p>{{ 'PARTNERS.CTA_TEXT' | translate }}</p>
       <a href="#contact" class="btn btn-outline">{{ 'PARTNERS.CTA_BUTTON' | translate }}</a>

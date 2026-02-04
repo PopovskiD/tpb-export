@@ -119,6 +119,8 @@
   overflow: hidden;
   box-shadow: $shadow-md;
   min-height: 400px;
+  position: relative;
+  z-index: 0;
 
   @media (min-width: $breakpoint-lg) {
     min-height: 500px;

@@ -91,10 +91,13 @@
         <h3>{{ 'CONTACT.INFO_TITLE' | translate }}</h3>
         <div class="info-list">
           <div class="info-item" *ngFor="let info of contactInfo">
-            <div class="info-icon" [innerHTML]="getIconSvg(info.icon)"></div>
+            <div class="info-icon">
+              <mat-icon>{{ info.icon }}</mat-icon>
+            </div>
             <div class="info-content">
               <h4>{{ info.titleKey | translate }}</h4>
-              <p [innerHTML]="info.contentKey ? (info.contentKey | translate) : info.content"></p>
+              <p *ngIf="!info.link" [innerHTML]="info.contentKey ? (info.contentKey | translate) : info.content"></p>
+              <p *ngIf="info.link"><a [href]="info.link" class="contact-link">{{ info.content }}</a></p>
             </div>
           </div>
         </div>
