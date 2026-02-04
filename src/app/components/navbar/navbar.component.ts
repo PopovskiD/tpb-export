@@ -20,7 +20,6 @@ export class NavbarComponent {
     { label: 'NAV.IMPORT_EXPORT', href: '#import-export' },
     { label: 'NAV.RETAIL', href: '#retail' },
     { label: 'NAV.LOCATIONS', href: '#locations' },
-    { label: 'NAV.CAREER', href: '#career' },
     { label: 'NAV.CONTACT', href: '#contact' }
   ];
 
