@@ -17,13 +17,15 @@
         <p>{{ 'DISTRIBUTION.TEXT' | translate }}</p>
 
         <div class="features-grid">
-          <div class="feature-item" *ngFor="let feature of features">
-            <div class="feature-icon" [innerHTML]="getIconSvg(feature.icon)"></div>
-            <div class="feature-content">
-              <h4>{{ feature.titleKey | translate }}</h4>
-              <p>{{ feature.descriptionKey | translate }}</p>
+          @for (feature of features; track feature) {
+            <div class="feature-item">
+              <div class="feature-icon" [innerHTML]="getIconSvg(feature.icon)"></div>
+              <div class="feature-content">
+                <h4>{{ feature.titleKey | translate }}</h4>
+                <p>{{ feature.descriptionKey | translate }}</p>
+              </div>
             </div>
-          </div>
+          }
         </div>
 
         <a href="#contact" class="btn btn-primary">{{ 'DISTRIBUTION.GET_QUOTE' | translate }}</a>

@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, OnDestroy } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import * as L from 'leaflet';
 
@@ -17,11 +17,10 @@ interface StoreLocation {
 }
 
 @Component({
-  selector: 'app-partners',
-  standalone: true,
-  imports: [CommonModule, TranslateModule],
-  templateUrl: './partners.component.html',
-  styleUrls: ['./partners.component.scss']
+    selector: 'app-partners',
+    imports: [TranslateModule],
+    templateUrl: './partners.component.html',
+    styleUrls: ['./partners.component.scss']
 })
 export class PartnersComponent implements AfterViewInit, OnDestroy {
   private map!: L.Map;

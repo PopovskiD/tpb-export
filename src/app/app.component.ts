@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { AboutComponent } from './components/about/about.component';
@@ -11,10 +11,8 @@ import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [
-    CommonModule,
+    selector: 'app-root',
+    imports: [
     NavbarComponent,
     HeroComponent,
     AboutComponent,
@@ -24,9 +22,9 @@ import { FooterComponent } from './components/footer/footer.component';
     PartnersComponent,
     ContactComponent,
     FooterComponent
-  ],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+],
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'TPB Export';

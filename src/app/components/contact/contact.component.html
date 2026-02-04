@@ -62,27 +62,37 @@
               [(ngModel)]="formData.message"
               required
               rows="5"
-              [placeholder]="'CONTACT.MESSAGE_PLACEHOLDER' | translate"></textarea>
+            [placeholder]="'CONTACT.MESSAGE_PLACEHOLDER' | translate"></textarea>
           </div>
 
-          <div class="form-status" *ngIf="submitStatus !== 'idle'">
-            <div class="status-message success" *ngIf="submitStatus === 'success'">
-              <span>{{ 'CONTACT.SUCCESS_MESSAGE' | translate }}</span>
-              <button type="button" class="dismiss-btn" (click)="dismissStatus()">&times;</button>
+          @if (submitStatus !== 'idle') {
+            <div class="form-status">
+              @if (submitStatus === 'success') {
+                <div class="status-message success">
+                  <span>{{ 'CONTACT.SUCCESS_MESSAGE' | translate }}</span>
+                  <button type="button" class="dismiss-btn" (click)="dismissStatus()">&times;</button>
+                </div>
+              }
+              @if (submitStatus === 'error') {
+                <div class="status-message error">
+                  <span>{{ 'CONTACT.ERROR_MESSAGE' | translate }}</span>
+                  <button type="button" class="dismiss-btn" (click)="dismissStatus()">&times;</button>
+                </div>
+              }
             </div>
-            <div class="status-message error" *ngIf="submitStatus === 'error'">
-              <span>{{ 'CONTACT.ERROR_MESSAGE' | translate }}</span>
-              <button type="button" class="dismiss-btn" (click)="dismissStatus()">&times;</button>
-            </div>
-          </div>
+          }
 
           <button
             type="submit"
             class="btn btn-primary"
             [disabled]="!contactForm.form.valid || isSubmitting"
             [class.loading]="isSubmitting">
-            <span *ngIf="!isSubmitting">{{ 'CONTACT.SEND' | translate }}</span>
-            <span *ngIf="isSubmitting">{{ 'CONTACT.SENDING' | translate }}</span>
+            @if (!isSubmitting) {
+              <span>{{ 'CONTACT.SEND' | translate }}</span>
+            }
+            @if (isSubmitting) {
+              <span>{{ 'CONTACT.SENDING' | translate }}</span>
+            }
           </button>
         </form>
       </div>
@@ -90,16 +100,22 @@
       <div class="contact-info">
         <h3>{{ 'CONTACT.INFO_TITLE' | translate }}</h3>
         <div class="info-list">
-          <div class="info-item" *ngFor="let info of contactInfo">
-            <div class="info-icon">
-              <mat-icon>{{ info.icon }}</mat-icon>
+          @for (info of contactInfo; track info) {
+            <div class="info-item">
+              <div class="info-icon">
+                <mat-icon>{{ info.icon }}</mat-icon>
+              </div>
+              <div class="info-content">
+                <h4>{{ info.titleKey | translate }}</h4>
+                @if (!info.link) {
+                  <p [innerHTML]="info.contentKey ? (info.contentKey | translate) : info.content"></p>
+                }
+                @if (info.link) {
+                  <p><a [href]="info.link" class="contact-link">{{ info.content }}</a></p>
+                }
+              </div>
             </div>
-            <div class="info-content">
-              <h4>{{ info.titleKey | translate }}</h4>
-              <p *ngIf="!info.link" [innerHTML]="info.contentKey ? (info.contentKey | translate) : info.content"></p>
-              <p *ngIf="info.link"><a [href]="info.link" class="contact-link">{{ info.content }}</a></p>
-            </div>
-          </div>
+          }
         </div>
       </div>
     </div>

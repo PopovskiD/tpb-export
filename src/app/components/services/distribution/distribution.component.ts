@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-distribution',
-  standalone: true,
-  imports: [CommonModule, TranslateModule],
-  templateUrl: './distribution.component.html',
-  styleUrls: ['./distribution.component.scss']
+    selector: 'app-distribution',
+    imports: [TranslateModule],
+    templateUrl: './distribution.component.html',
+    styleUrls: ['./distribution.component.scss']
 })
 export class DistributionComponent {
   features = [

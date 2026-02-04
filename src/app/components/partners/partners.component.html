@@ -6,30 +6,36 @@
     </div>
 
     <div class="partners-grid">
-      <div class="partner-card" *ngFor="let partner of partners">
-        <div class="partner-logo">
-          <img [src]="'../../../assets/images/partners/' + partner.logo + '.png'" [alt]="partner.name" width="150" height="100">
+      @for (partner of partners; track partner) {
+        <div class="partner-card">
+          <div class="partner-logo">
+            <img [src]="'../../../assets/images/partners/' + partner.logo + '.png'" [alt]="partner.name" width="150" height="100">
+          </div>
         </div>
-      </div>
+      }
     </div>
 
     <div class="locations-content">
       <div class="locations-sidebar">
         <div class="locations-list">
-          <div class="location-group" *ngFor="let type of locationTypes">
-            <h5>{{ getTypeLabel(type) }}</h5>
-            <ul>
-              <li *ngFor="let location of getLocationsByType(type)"
-                  [class.active]="selectedLocation?.id === location.id"
-                  (click)="selectLocation(location)">
-                <span class="location-dot" [style.background-color]="getTypeColor(location.type)"></span>
-                <div class="location-info">
-                  <span class="location-name">{{ location.name }}</span>
-                  <span class="location-city">{{ location.city }}, {{ location.country }}</span>
-                </div>
-              </li>
-            </ul>
-          </div>
+          @for (type of locationTypes; track type) {
+            <div class="location-group">
+              <h5>{{ getTypeLabel(type) }}</h5>
+              <ul>
+                @for (location of getLocationsByType(type); track location) {
+                  <li
+                    [class.active]="selectedLocation?.id === location.id"
+                    (click)="selectLocation(location)">
+                    <span class="location-dot" [style.background-color]="getTypeColor(location.type)"></span>
+                    <div class="location-info">
+                      <span class="location-name">{{ location.name }}</span>
+                      <span class="location-city">{{ location.city }}, {{ location.country }}</span>
+                    </div>
+                  </li>
+                }
+              </ul>
+            </div>
+          }
         </div>
       </div>
 

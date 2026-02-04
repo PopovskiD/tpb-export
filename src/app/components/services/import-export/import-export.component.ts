@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-import-export',
-  standalone: true,
-  imports: [CommonModule, TranslateModule],
-  templateUrl: './import-export.component.html',
-  styleUrls: ['./import-export.component.scss']
+    selector: 'app-import-export',
+    imports: [TranslateModule],
+    templateUrl: './import-export.component.html',
+    styleUrls: ['./import-export.component.scss']
 })
 export class ImportExportComponent {
   services = [

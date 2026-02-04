@@ -11,13 +11,15 @@
         <p>{{ 'IMPORT_EXPORT.TEXT' | translate }}</p>
 
         <div class="services-list">
-          <div class="service-item" *ngFor="let service of services">
-            <div class="service-icon" [innerHTML]="getIconSvg(service.icon)"></div>
-            <div class="service-content-item">
-              <h4>{{ service.titleKey | translate }}</h4>
-              <p>{{ service.descriptionKey | translate }}</p>
+          @for (service of services; track service) {
+            <div class="service-item">
+              <div class="service-icon" [innerHTML]="getIconSvg(service.icon)"></div>
+              <div class="service-content-item">
+                <h4>{{ service.titleKey | translate }}</h4>
+                <p>{{ service.descriptionKey | translate }}</p>
+              </div>
             </div>
-          </div>
+          }
         </div>
 
         <a href="#contact" class="btn btn-primary">{{ 'IMPORT_EXPORT.START_TRADING' | translate }}</a>

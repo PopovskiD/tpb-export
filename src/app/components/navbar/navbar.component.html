@@ -6,14 +6,16 @@
     </a>
 
     <ul class="nav-menu" [class.active]="isMobileMenuOpen">
-      <li class="nav-item" *ngFor="let item of menuItems">
-        <a
-          [href]="item.href"
-          class="nav-link"
-          (click)="scrollToSection($event, item.href)">
-          {{ item.label | translate }}
-        </a>
-      </li>
+      @for (item of menuItems; track item) {
+        <li class="nav-item">
+          <a
+            [href]="item.href"
+            class="nav-link"
+            (click)="scrollToSection($event, item.href)">
+            {{ item.label | translate }}
+          </a>
+        </li>
+      }
       <li class="nav-item lang-switcher-mobile">
         <div class="lang-buttons">
           <button

@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-retail',
-  standalone: true,
-  imports: [CommonModule, TranslateModule],
-  templateUrl: './retail.component.html',
-  styleUrls: ['./retail.component.scss']
+    selector: 'app-retail',
+    imports: [TranslateModule],
+    templateUrl: './retail.component.html',
+    styleUrls: ['./retail.component.scss']
 })
 export class RetailComponent {
   offerings = [
