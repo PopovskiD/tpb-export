@@ -65,8 +65,24 @@
               [placeholder]="'CONTACT.MESSAGE_PLACEHOLDER' | translate"></textarea>
           </div>
 
-          <button type="submit" class="btn btn-primary" [disabled]="!contactForm.form.valid">
-            {{ 'CONTACT.SEND' | translate }}
+          <div class="form-status" *ngIf="submitStatus !== 'idle'">
+            <div class="status-message success" *ngIf="submitStatus === 'success'">
+              <span>{{ 'CONTACT.SUCCESS_MESSAGE' | translate }}</span>
+              <button type="button" class="dismiss-btn" (click)="dismissStatus()">&times;</button>
+            </div>
+            <div class="status-message error" *ngIf="submitStatus === 'error'">
+              <span>{{ 'CONTACT.ERROR_MESSAGE' | translate }}</span>
+              <button type="button" class="dismiss-btn" (click)="dismissStatus()">&times;</button>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="!contactForm.form.valid || isSubmitting"
+            [class.loading]="isSubmitting">
+            <span *ngIf="!isSubmitting">{{ 'CONTACT.SEND' | translate }}</span>
+            <span *ngIf="isSubmitting">{{ 'CONTACT.SENDING' | translate }}</span>
           </button>
         </form>
       </div>

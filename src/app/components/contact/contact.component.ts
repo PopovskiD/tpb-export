@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import emailjs from '@emailjs/browser';
+import { environment } from '../../../environments/environment';
 
 interface ContactForm {
   name: string;
@@ -27,6 +29,9 @@ export class ContactComponent {
     message: ''
   };
 
+  isSubmitting = false;
+  submitStatus: 'idle' | 'success' | 'error' = 'idle';
+
   contactInfo = [
     {
       icon: 'map-pin',
@@ -50,10 +55,39 @@ export class ContactComponent {
     }
   ];
 
-  onSubmit() {
-    console.log('Form submitted:', this.formData);
-    alert('Thank you for your message! We will get back to you soon.');
-    this.resetForm();
+  constructor(private translate: TranslateService) {}
+
+  async onSubmit() {
+    if (this.isSubmitting) return;
+
+    this.isSubmitting = true;
+    this.submitStatus = 'idle';
+
+    const templateParams = {
+      from_name: this.formData.name,
+      from_email: this.formData.email,
+      phone: this.formData.phone || 'Not provided',
+      subject: this.formData.subject,
+      message: this.formData.message,
+      to_email: 'info@tpb-export.com'
+    };
+
+    try {
+      await emailjs.send(
+        environment.emailjs.serviceId,
+        environment.emailjs.templateId,
+        templateParams,
+        environment.emailjs.publicKey
+      );
+
+      this.submitStatus = 'success';
+      this.resetForm();
+    } catch (error) {
+      console.error('Email send failed:', error);
+      this.submitStatus = 'error';
+    } finally {
+      this.isSubmitting = false;
+    }
   }
 
   resetForm() {
@@ -64,6 +98,10 @@ export class ContactComponent {
       subject: '',
       message: ''
     };
+  }
+
+  dismissStatus() {
+    this.submitStatus = 'idle';
   }
 
   getIconSvg(icon: string): string {
