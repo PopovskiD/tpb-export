@@ -1,5 +1,4 @@
----
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/tpbexpor/repositories/tpb-export
-    - /bin/cp -R src/* $DEPLOYPATH
+    - export DEPLOYPATH=/home/tpbexpor/public_html/
+    - /bin/cp -a dist/* $DEPLOYPATH
